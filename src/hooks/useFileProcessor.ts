@@ -122,7 +122,7 @@ const useFileProcessor = (): [FileProcessorState, FileProcessorActions] => {
 
   const startAnalysis = useCallback(() => {
     setState(prev => ({ ...prev, loading: true, progress: 0, estimatedTime: "" }));
-    const worker = new Worker(new URL('../../public/worker.js', import.meta.url));
+    const worker = new Worker(new URL('../workers/worker.ts', import.meta.url));
 
     worker.postMessage({
       smsVkData: state.smsVkData,
